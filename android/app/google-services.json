@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "627687794150",
+    "project_id": "smaglator-8da8e",
+    "storage_bucket": "smaglator-8da8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627687794150:android:a68f012e8aa523dd6ee227",
+        "android_client_info": {
+          "package_name": "com.example.smaglator_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627687794150-9mm1keftmp825v7a6d01ou82jaad17jq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4RQ146m2bTjrBJdXMh4ha3KlsmybSA9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627687794150-9mm1keftmp825v7a6d01ou82jaad17jq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
