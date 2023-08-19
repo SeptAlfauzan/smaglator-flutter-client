@@ -29,7 +29,9 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 15),
           FloatingActionButton(
             backgroundColor: const Color(0xFFE653A2),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/camera');
+            },
             child: const Icon(Icons.camera_alt),
           ),
         ],
