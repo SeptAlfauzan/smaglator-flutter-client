@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smaglator_web/auth_page.dart';
 import 'package:smaglator_web/firebase_options.dart';
+import 'package:smaglator_web/hand_detection.dart';
 import 'package:smaglator_web/home_page.dart';
 import 'package:smaglator_web/speech.dart';
 import 'package:smaglator_web/text.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/dashboard': (context) => const HomePage(),
         '/speech': (context) => const SpeechScreen(),
         '/text': (context) => const TextListScreen(),
+        '/camera': (context) => const HandDetectionScreen(),
       },
     );
   }
