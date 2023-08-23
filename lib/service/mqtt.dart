@@ -68,8 +68,8 @@ class MQTTWrapper {
 
     /// Ok, lets try a subscription
     // print('EXAMPLE::Subscribing to the test/lol topic');
-    // const topic = 'test/lol'; // Not a wildcard topic
-    // client.subscribe(topic, MqttQos.atMostOnce);
+    const topic = 'test/lol'; // Not a wildcard topic
+    client.subscribe(topic, MqttQos.atMostOnce);
 
     /// The client has a change notifier object(see the Observable class) which we then listen to to get
     /// notifications of published updates to each subscribed topic.
@@ -96,12 +96,12 @@ class MQTTWrapper {
     // final builder = MqttClientPayloadBuilder();
     // builder.addString('Hello from mqtt_client');
 
-    // /// Subscribe to it
-    // print('EXAMPLE::Subscribing to the Dart/Mqtt_client/testtopic topic');
+    // // /// Subscribe to it
+    // // print('EXAMPLE::Subscribing to the Dart/Mqtt_client/testtopic topic');
     // client.subscribe(pubTopic, MqttQos.exactlyOnce);
 
-    // /// Publish it
-    // print('EXAMPLE::Publishing our topic');
+    // // /// Publish it
+    // // print('EXAMPLE::Publishing our topic');
     // client.publishMessage(pubTopic, MqttQos.exactlyOnce, builder.payload!);
 
     // /// Ok, we will now sleep a while, in this gap you will see ping request/response
