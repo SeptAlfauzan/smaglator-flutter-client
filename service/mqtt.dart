@@ -21,6 +21,9 @@ import 'package:mqtt_client/mqtt_server_client.dart';
 main() {
   MQTTClientWrapper newclient = MQTTClientWrapper();
   newclient.prepareMqttClient();
+  newclient.listened();
+  // MqttHandler mqttHandler = MqttHandler();
+  // mqttHandler.connect();
 }
 
 // connection states for easy identification
@@ -53,7 +56,7 @@ class MQTTClientWrapper {
     try {
       print('client connecting....');
       connectionState = MqttCurrentConnectionState.CONNECTING;
-      await client.connect('smaglator', 'smaglatorkey');
+      await client.connect('', 'key');
     } on Exception catch (e) {
       print('client exception - $e');
       connectionState = MqttCurrentConnectionState.ERROR_WHEN_CONNECTING;
@@ -74,9 +77,7 @@ class MQTTClientWrapper {
 
   void _setupMqttClient() {
     client = MqttServerClient.withPort(
-        'a13dfc6212324ee09a5de48f1f2d94dd.s1.eu.hivemq.cloud',
-        'fluuter-client-id',
-        8883);
+        'tcc32fca.ala.us-east-1.emqxsl.com', 'fluuter-client-id', 8883);
     // the next 2 lines are necessary to connect with tls, which is used by HiveMQ Cloud
     client.secure = true;
     client.securityContext = SecurityContext.defaultContext;
@@ -89,8 +90,10 @@ class MQTTClientWrapper {
   void _subscribeToTopic(String topicName) {
     print('Subscribing to the $topicName topic');
     client.subscribe(topicName, MqttQos.atMostOnce);
+  }
 
-    // print the message when it is received
+  void listened() {
+    //used to listened any update incoming
     client.updates?.listen((List<MqttReceivedMessage<MqttMessage>> c) {
       final MqttPublishMessage recMess = c[0].payload as MqttPublishMessage;
       var message =
