@@ -92,17 +92,17 @@ class MQTTWrapper {
     /// Lets publish to our topic
     /// Use the payload builder rather than a raw buffer
     /// Our known topic to publish to
-    // const pubTopic = 'test/lol';
-    // final builder = MqttClientPayloadBuilder();
-    // builder.addString('Hello from mqtt_client');
+    const pubTopic = 'test/lol';
+    final builder = MqttClientPayloadBuilder();
+    builder.addString('Hello from mqtt_client');
 
-    // // /// Subscribe to it
-    // // print('EXAMPLE::Subscribing to the Dart/Mqtt_client/testtopic topic');
-    // client.subscribe(pubTopic, MqttQos.exactlyOnce);
+    // /// Subscribe to it
+    // print('EXAMPLE::Subscribing to the Dart/Mqtt_client/testtopic topic');
+    client.subscribe(pubTopic, MqttQos.exactlyOnce);
 
-    // // /// Publish it
-    // // print('EXAMPLE::Publishing our topic');
-    // client.publishMessage(pubTopic, MqttQos.exactlyOnce, builder.payload!);
+    // /// Publish it
+    // print('EXAMPLE::Publishing our topic');
+    client.publishMessage(pubTopic, MqttQos.exactlyOnce, builder.payload!);
 
     // /// Ok, we will now sleep a while, in this gap you will see ping request/response
     // /// messages being exchanged by the keep alive mechanism.
