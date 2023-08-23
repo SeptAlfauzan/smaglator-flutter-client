@@ -1,7 +1,8 @@
 import 'package:mqtt_client/mqtt_browser_client.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 
-final client = MqttBrowserClient('wss://broker.emqx.io/mqtt', '123123123');
+final client =
+    MqttBrowserClient('wss://tcc32fca.ala.us-east-1.emqxsl.com/mqtt', '');
 
 class MQTTWrapper {
   void init(void Function(bool) connectionCallback,
@@ -35,6 +36,7 @@ class MQTTWrapper {
     client.pongCallback = pong;
 
     final connMess = MqttConnectMessage()
+        .authenticateAs("smaglator", "smaglatorkey")
         .withClientIdentifier('123123123')
         .withWillTopic(
             'willtopic') // If you set this you must set a will message
@@ -94,7 +96,7 @@ class MQTTWrapper {
     /// Our known topic to publish to
     const pubTopic = 'test/lol';
     final builder = MqttClientPayloadBuilder();
-    builder.addString('Hello from mqtt_client');
+    builder.addString('Hello from mqtt_client 23123');
 
     // /// Subscribe to it
     // print('EXAMPLE::Subscribing to the Dart/Mqtt_client/testtopic topic');
