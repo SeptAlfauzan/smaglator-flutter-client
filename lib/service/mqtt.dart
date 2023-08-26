@@ -1,5 +1,6 @@
 import 'package:mqtt_client/mqtt_browser_client.dart';
 import 'package:mqtt_client/mqtt_client.dart';
+import 'package:uuid/uuid.dart';
 
 final client =
     MqttBrowserClient('wss://tcc32fca.ala.us-east-1.emqxsl.com/mqtt', '');
@@ -34,10 +35,12 @@ class MQTTWrapper {
     /// Set a ping received callback if needed, called whenever a ping response(pong) is received
     /// from the broker.
     client.pongCallback = pong;
+    var uuid = const Uuid();
+    var clientId = uuid.v4();
 
     final connMess = MqttConnectMessage()
         .authenticateAs("smaglator", "smaglatorkey")
-        .withClientIdentifier('123123123')
+        .withClientIdentifier(clientId)
         .withWillTopic(
             'willtopic') // If you set this you must set a will message
         .withWillMessage('My Will message')

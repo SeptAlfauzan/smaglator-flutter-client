@@ -26,6 +26,8 @@ class _HandDetectionScreenState extends State<HandDetectionScreen> {
   void _updateConnectedValue(bool value) {
     setState(() {
       isConnected = value;
+      disableButton = false;
+      if (isConnected == false) mqttPayload = "";
     });
   }
 
@@ -44,11 +46,6 @@ class _HandDetectionScreenState extends State<HandDetectionScreen> {
     } else {
       mqttBrowserWrapper.close(_updateConnectedValue);
     }
-
-    await Future.delayed(const Duration(milliseconds: 300));
-    setState(() {
-      disableButton = false;
-    });
   }
 
   @override
@@ -70,11 +67,23 @@ class _HandDetectionScreenState extends State<HandDetectionScreen> {
           crossAxisAlignment:
               CrossAxisAlignment.center, // Centering horizontally
           children: [
-            Text(isConnected ? "Connected!" : "Not Connected"),
+            Text(
+              isConnected ? "Connected!" : "Not Connected",
+              style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 32,
+                  color: Color.fromARGB(100, 0, 0, 0)),
+            ),
             Text(disableButton
                 ? (!isConnected ? "Connecting.." : "Disconnecting..")
                 : ""),
-            Text(mqttPayload),
+            Text(
+              mqttPayload,
+              style: const TextStyle(
+                  fontSize: 64,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF223b63)),
+            ),
           ],
         ),
       ),
@@ -84,8 +93,9 @@ class _HandDetectionScreenState extends State<HandDetectionScreen> {
           onPressed: () {
             !disableButton ? toggleConnection() : null;
           },
-          child:
-              isConnected ? const Icon(Icons.stop) : const Icon(Icons.start)),
+          child: isConnected
+              ? const Icon(Icons.stop)
+              : const Icon(Icons.play_arrow)),
     );
   }
 }
