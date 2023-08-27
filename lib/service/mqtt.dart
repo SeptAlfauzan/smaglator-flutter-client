@@ -99,7 +99,7 @@ class MQTTWrapper {
     /// Our known topic to publish to
     const pubTopic = 'test/lol';
     final builder = MqttClientPayloadBuilder();
-    builder.addString('Hello from mqtt_client 23123');
+    builder.addString('Successfully connected to broker 🎉');
 
     // /// Subscribe to it
     // print('EXAMPLE::Subscribing to the Dart/Mqtt_client/testtopic topic');
